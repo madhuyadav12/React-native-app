@@ -1,22 +1,22 @@
-import React, { useRef, useContext } from "react";
-import { Image, ScrollView, StyleSheet, View } from "react-native";
-import AppDatePicker from "../components/AppDatePicker";
-import * as Yup from "yup";
-import AppStyles from "../config/AppStyles";
-import AuthContext from "../auth/context";
-import AppFormField from "../components/AppFormField";
-import AppFormButton from "../components/AppFormButton";
-import AppForm from "../components/AppForm";
+import React, { useRef, useContext } from 'react';
+import { Image, ScrollView, StyleSheet, View } from 'react-native';
+import AppDatePicker from '../components/AppDatePicker';
+import * as Yup from 'yup';
+import AppStyles from '../config/AppStyles';
+import AuthContext from '../auth/context';
+import AppFormField from '../components/AppFormField';
+import AppFormButton from '../components/AppFormButton';
+import AppForm from '../components/AppForm';
 
 const validationSchema = Yup.object().shape({
-  firstName: Yup.string().required().label("First Name"),
-  lastName: Yup.string().required().label("Last Name"),
-  email: Yup.string().required().email().label("Email"),
-  password: Yup.string().required().min(6).label("Password"),
+  firstName: Yup.string().required().label('First Name'),
+  lastName: Yup.string().required().label('Last Name'),
+  email: Yup.string().required().email().label('Email'),
+  password: Yup.string().required().min(6).label('Password'),
   confirmPassword: Yup.string()
     .required()
-    .label("Confirm Password")
-    .oneOf([Yup.ref("password")], "Password does not match"),
+    .label('Confirm Password')
+    .oneOf([Yup.ref('password')], 'Password does not match'),
 });
 
 function SignupScreen(props) {
@@ -35,17 +35,17 @@ function SignupScreen(props) {
     <View>
       <ScrollView contentContainerStyle={styles.container}>
         <Image
-          source={require("../assets/logo-red.png")}
+          source={require('../assets/logo-red.png')}
           style={[AppStyles.logo, styles.loginLogo]}
         />
         <AppForm
           initialValues={{
-            firstName: "",
-            lastName: "",
-            email: "",
-            password: "",
-            confirmPassword: "",
-            dob: "",
+            firstName: '',
+            lastName: '',
+            email: '',
+            password: '',
+            confirmPassword: '',
+            dob: '',
           }}
           onSubmit={(v) => handleSignup(v)}
           validationSchema={validationSchema}
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   loginLogo: {
     marginTop: 20,
     marginBottom: 40,
-    alignSelf: "center",
+    alignSelf: 'center',
   },
 });
 
